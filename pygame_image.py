@@ -21,17 +21,23 @@ def main():
         for event in pg.event.get():
             if event.type == pg.QUIT: return
 
+        dif_x = 0
+        dif_y = 0
+
         key_lst = pg.key.get_pressed() #練習8-3 キーの押下状態を取得
         if key_lst[pg.K_UP]: #練習8-4
-            kk_rct.move_ip((0, -1))#こうかとんの縦座標を-1する
+            dif_y -= 1 #こうかとんの縦座標を-1する
         if key_lst[pg.K_DOWN]:
-            kk_rct.move_ip((0, +1))
+            dif_y += 1
         if key_lst[pg.K_RIGHT]:
-            kk_rct.move_ip((+2, 0))
+            dif_x += 2
         if key_lst[pg.K_LEFT]:
-            kk_rct.move_ip((-2, 0))
+            dif_x -= 2
         else:
             kk_rct.move_ip((-1, 0))
+
+        kk_rct.move_ip((dif_x, dif_y))
+
         x = -(tmr % 3200) #練習6
         screen.blit(bg_img, [x, 0])
         screen.blit(bgr_img, [x + 1600, 0])
