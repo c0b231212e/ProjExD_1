@@ -23,12 +23,14 @@ def main():
 
         key_lst = pg.key.get_pressed() #練習8-3 キーの押下状態を取得
         if key_lst[pg.K_UP]: #練習8-4
-            kk_rct.move_ip((0, -10))#こうかとんの縦座標を-1する
+            kk_rct.move_ip((0, -1))#こうかとんの縦座標を-1する
         if key_lst[pg.K_DOWN]:
             kk_rct.move_ip((0, +1))
         if key_lst[pg.K_RIGHT]:
-            kk_rct.move_ip((+1, 0))
+            kk_rct.move_ip((+2, 0))
         if key_lst[pg.K_LEFT]:
+            kk_rct.move_ip((-2, 0))
+        else:
             kk_rct.move_ip((-1, 0))
         x = -(tmr % 3200) #練習6
         screen.blit(bg_img, [x, 0])
@@ -38,8 +40,6 @@ def main():
         screen.blit(kk_img, kk_rct) #練習8-5
         pg.display.update()
         tmr += 1        
-        #if tmr == 800:
-        #    tmr = 0
         clock.tick(200) #練習5
 
 
