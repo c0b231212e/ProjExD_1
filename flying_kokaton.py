@@ -34,7 +34,7 @@ def main():
         if key_lst[pg.K_LEFT]:
             dif_x -= 2
         else:
-            kk_rct.move_ip((-1, 0))
+            dif_x -= 1
 
         kk_rct.move_ip((dif_x, dif_y))
 
